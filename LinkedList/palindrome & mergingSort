@@ -1,0 +1,78 @@
+public static boolean palindrome(LinkedListNode head){
+        LinkedListNode temp=head;
+        int Count=0;
+        while (temp.next != null) {
+            Count++;
+            temp = temp.next;
+        }
+        Count++;
+        double[] arr = new double[Count];
+        temp=head;int i=0;
+        while (temp.next != null) {
+            arr[i]=temp.value;
+            i++;
+            temp = temp.next;
+        }
+        arr[i]=temp.value;i++;
+        LinkedListNode node = reverse(head);
+        PrintList(node);
+        int Coount=0;int j=0;
+        if (node.value==arr[j]) {
+           // System.out.println("++"+node.value+"    "+arr[j]);
+            Coount++;j++;
+            node=node.next;
+            while (node.next != null && j<=i) {
+               // System.out.println(node.value+"    "+arr[j]);
+                if (node.value == arr[j])
+                    Coount++;
+                else break;
+                node = node.next;
+                j++;
+                if (node.next==null){
+                    if (node.value == arr[j])
+                        Coount++;
+                }
+            }
+        }
+     //   System.out.println("$"+Count);
+     //   System.out.println("$"+Coount);
+        if (Coount==Count) return true;
+        else return false;
+    }
+    
+    public static LinkedListNode mergeSort(LinkedListNode head){
+        if (head==null||head.next==null)
+            return head;
+        LinkedListNode node= head;
+        double Count=0;
+        while (node.next != null) {
+            Count++;
+            node = node.next;
+        }
+        //Count++;
+        node= head;
+        for (int i=0;i<Count/2-2;i++)
+            node =node.next;
+        LinkedListNode AftMid = node.next;
+        node.next=null;
+        LinkedListNode no01 = mergeSort(head);
+        LinkedListNode no02 = mergeSort(AftMid);
+        LinkedListNode Sorted = Merging(no01,no02);
+        return Sorted;
+    }
+    public static LinkedListNode Merging(LinkedListNode no01,LinkedListNode no02){
+        if (no01 == null)
+            return no02;
+        if (no02 == null)
+            return no01;
+        LinkedListNode temp;
+        if (no01.value <= no02.value) {
+            temp = no01;
+            temp.next = Merging(no01.next, no02);
+        }
+        else {
+            temp = no02;
+            temp.next = Merging(no01, no02.next);
+        }
+        return temp;
+    }
