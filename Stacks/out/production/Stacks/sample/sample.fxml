@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <TabPane prefHeight="419.0" prefWidth="379.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Stack">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="419.0" prefWidth="379.0">
+                     <children>
+                        <Pane prefHeight="419.0" prefWidth="379.0">
+                           <children>
+                              <TextArea fx:id="push" layoutX="21.0" layoutY="88.0" prefHeight="32.0" prefWidth="200.0" promptText="Enter the object you want to push" />
+                              <TextArea fx:id="St" layoutX="104.0" layoutY="23.0" prefHeight="32.0" prefWidth="200.0" promptText="The stack" />
+                              <TextArea fx:id="Pop" layoutX="135.0" layoutY="141.0" prefHeight="32.0" prefWidth="200.0" promptText="The poped object" />
+                              <TextArea fx:id="Peek" layoutX="135.0" layoutY="194.0" prefHeight="32.0" prefWidth="200.0" promptText="The last object on the stack" />
+                              <TextArea fx:id="IsEmpty" layoutX="135.0" layoutY="253.0" prefHeight="32.0" prefWidth="200.0" promptText="Whether stack is empty or not" />
+                              <TextArea fx:id="size" layoutX="135.0" layoutY="309.0" prefHeight="32.0" prefWidth="200.0" promptText="The stack size" />
+                              <Button layoutX="30.0" layoutY="147.0" mnemonicParsing="false" onAction="#pressButton2" prefHeight="25.0" prefWidth="63.0" text="Pop" />
+                              <Button layoutX="30.0" layoutY="200.0" mnemonicParsing="false" onAction="#pressButton3" prefHeight="25.0" prefWidth="63.0" text="Peek" />
+                              <Button layoutX="30.0" layoutY="259.0" mnemonicParsing="false" onAction="#pressButton4" text="IsEmpty?" />
+                              <Button layoutX="30.0" layoutY="315.0" mnemonicParsing="false" onAction="#pressButton5" prefHeight="25.0" prefWidth="63.0" text="Size" />
+                              <Button layoutX="272.0" layoutY="94.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="25.0" prefWidth="63.0" text="Push" />
+                              <Label layoutX="40.0" layoutY="33.0" prefHeight="17.0" prefWidth="80.0" snapToPixel="false" text="The stack:">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Expression evaluator">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="Expression" layoutX="38.0" layoutY="58.0" prefHeight="17.0" prefWidth="200.0" promptText="Enter the infix expresion" />
+                        <Button fx:id="evaluate" layoutX="270.0" layoutY="64.0" mnemonicParsing="false" onAction="#pressButton6" text="Evaluate" />
+                        <TextArea fx:id="Postfix" layoutX="152.0" layoutY="126.0" prefHeight="38.0" prefWidth="198.0" promptText="The postfix expression" />
+                        <TextArea fx:id="Value" layoutX="155.0" layoutY="196.0" prefHeight="38.0" prefWidth="195.0" promptText="The expression final value" />
+                        <Label layoutX="24.0" layoutY="136.0" text="The postfix value" />
+                        <Label layoutX="14.0" layoutY="207.0" text="The expression final value" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</GridPane>
